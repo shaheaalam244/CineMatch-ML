@@ -31,3 +31,4 @@
 - Step 31: Add movie detail page template
 - Step 32: Implement movie detail routing
 - Step 33: Integrate recommendations into movie detail page
+- Step 34: Create filter page template

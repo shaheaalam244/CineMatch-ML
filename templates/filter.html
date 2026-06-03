@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Filter Movies - CineMatch{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">
+        <i class="fas fa-filter me-3"></i>Filter Movies
+    </h1>
+    
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+            <form action="/filter" method="GET" class="p-4" style="background: var(--card-bg); border-radius: 15px;">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Genre</label>
+                        <select name="genre" class="form-select" style="background: var(--dark-bg); color: var(--text-primary); border-color: var(--primary-color);">
+                            <option value="">All Genres</option>
+                            {% for genre in genres %}
+                            <option value="{{ genre }}">{{ genre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label class="form-label">Minimum Rating</label>
+                        <select name="min_rating" class="form-select" style="background: var(--dark-bg); color: var(--text-primary); border-color: var(--primary-color);">
+                            <option value="">Any Rating</option>
+                            <option value="9">9.0+</option>
+                            <option value="8">8.0+</option>
+                            <option value="7">7.0+</option>
+                            <option value="6">6.0+</option>
+                            <option value="5">5.0+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label class="form-label">Category</label>
+                        <select name="category" class="form-select" style="background: var(--dark-bg); color: var(--text-primary); border-color: var(--primary-color);">
+                            <option value="">All Categories</option>
+                            <option value="Hollywood">Hollywood</option>
+                            <option value="Bollywood">Bollywood</option>
+                            <option value="Web Series">Web Series</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary-custom">
+                        <i class="fas fa-search me-2"></i>Apply Filters
+                    </button>
+                    <a href="/filter" class="btn btn-outline-secondary ms-3" style="border-radius: 30px;">
+                        <i class="fas fa-redo me-2"></i>Reset
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    {% if movies %}
+    <h4 class="mb-4">Filtered Results ({{ movies|length }} movies)</h4>
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="/movie/{{ movie.title }}" class="text-decoration-none">
+                <div class="movie-card">
+                    {% if movie.poster %}
+                    <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster">
+                    {% else %}
+                    <div class="poster-placeholder">
+                        <i class="fas fa-film fa-3x"></i>
+                    </div>
+                    {% endif %}
+                    <div class="movie-info">
+                        <div class="movie-title" title="{{ movie.title }}">{{ movie.title }}</div>
+                        <div class="movie-genre">{{ movie.genre }}</div>
+                        <span class="movie-rating">
+                            <i class="fas fa-star me-1"></i>{{ movie.vote_average }}
+                        </span>
+                        <span class="badge bg-secondary ms-2">{{ movie.category }}</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% elif request.args %}
+    <div class="text-center py-5">
+        <i class="fas fa-filter fa-4x mb-3" style="color: var(--text-secondary);"></i>
+        <p class="text-secondary">No movies match your filters. Try adjusting your criteria.</p>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <i class="fas fa-sliders-h fa-4x mb-3" style="color: var(--text-secondary);"></i>
+        <p class="text-secondary">Select filters above to find your perfect movie</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
