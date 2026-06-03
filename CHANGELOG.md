@@ -29,3 +29,4 @@
 - Step 29: Create search functionality template
 - Step 30: Implement search query logic in backend
 - Step 31: Add movie detail page template
+- Step 32: Implement movie detail routing
