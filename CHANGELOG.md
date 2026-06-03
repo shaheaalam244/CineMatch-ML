@@ -16,3 +16,4 @@
 - Step 16: Add cosine similarity calculation logic
 - Step 17: Implement core recommendation algorithm
 - Step 18: Add fallback logic for empty recommendation results
+- Step 19: Create base HTML template with Bootstrap
