@@ -42,3 +42,4 @@
 - Step 42: Create recommendations standalone page
 - Step 43: Fix responsive layout issues in movie cards
 - Step 44: Add loading spinners for API calls
+- Step 45: Update application secret key for production
