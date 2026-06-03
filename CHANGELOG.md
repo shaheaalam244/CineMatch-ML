@@ -1,3 +1,4 @@
 - Step 1: Initial project setup
 - Step 2: Initialize Git repository and add .gitignore
 - Step 3: Define project dependencies in requirements.txt
+- Step 4: Set up basic Flask application structure in app.py
