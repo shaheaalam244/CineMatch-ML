@@ -12,3 +12,4 @@
 - Step 12: Implement OMDB API fetching logic
 - Step 13: Add error handling for API timeouts
 - Step 14: Extract relevant movie metadata from API response
+- Step 15: Implement TF-IDF vectorizer setup
