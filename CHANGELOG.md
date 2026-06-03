@@ -17,3 +17,4 @@
 - Step 17: Implement core recommendation algorithm
 - Step 18: Add fallback logic for empty recommendation results
 - Step 19: Create base HTML template with Bootstrap
+- Step 20: Add custom CSS styling for dark mode UI
