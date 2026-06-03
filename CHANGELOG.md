@@ -20,3 +20,4 @@
 - Step 20: Add custom CSS styling for dark mode UI
 - Step 21: Implement Welcome page template
 - Step 22: Add session management for user login
+- Step 23: Create Home page template for popular movies
