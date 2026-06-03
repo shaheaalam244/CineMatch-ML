@@ -39,3 +39,4 @@
 - Step 39: Implement concurrent fetching with ThreadPoolExecutor
 - Step 40: Add About page template
 - Step 41: Implement logout functionality
+- Step 42: Create recommendations standalone page

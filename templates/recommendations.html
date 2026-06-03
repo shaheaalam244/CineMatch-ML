@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Recommendations for "{{ query }}"{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">
+        <i class="fas fa-search me-3"></i>Recommendations for "{{ query }}"
+    </h1>
+
+    {% if not query %}
+    <div class="text-center py-5">
+        <i class="fas fa-film fa-4x mb-3" style="color: var(--text-secondary);"></i>
+        <p class="text-secondary">Enter a movie title to get recommendations.</p>
+    </div>
+    {% elif recommendations %}
+    <div class="row">
+        {% for movie in recommendations %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="/movie/{{ movie.title }}" class="text-decoration-none">
+                <div class="movie-card">
+                    {% if movie.poster %}
+                    <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster">
+                    {% else %}
+                    <div class="poster-placeholder">
+                        <i class="fas fa-film fa-3x"></i>
+                    </div>
+                    {% endif %}
+                    <div class="movie-info">
+                        <div class="movie-title" title="{{ movie.title }}">{{ movie.title }}</div>
+                        <div class="movie-genre">{{ movie.genre }}</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <i class="fas fa-exclamation-circle fa-4x mb-3" style="color: var(--text-secondary);"></i>
+        <p class="text-secondary">No recommendations found for "{{ query }}".</p>
+        <p class="text-secondary">Please try a different movie title.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
