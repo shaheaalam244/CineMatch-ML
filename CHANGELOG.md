@@ -27,3 +27,4 @@
 - Step 27: Implement Bollywood category route
 - Step 28: Add Web Series category route
 - Step 29: Create search functionality template
+- Step 30: Implement search query logic in backend
