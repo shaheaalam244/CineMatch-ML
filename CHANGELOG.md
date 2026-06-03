@@ -38,3 +38,4 @@
 - Step 38: Optimize performance using LRU cache
 - Step 39: Implement concurrent fetching with ThreadPoolExecutor
 - Step 40: Add About page template
+- Step 41: Implement logout functionality
