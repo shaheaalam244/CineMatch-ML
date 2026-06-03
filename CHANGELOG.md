@@ -6,3 +6,4 @@
 - Step 6: Implement dataset loading utility function
 - Step 7: Add dataset.csv for Hollywood movies
 - Step 8: Implement data preprocessing and NaN handling
+- Step 9: Add Bollywood movie dataset support
