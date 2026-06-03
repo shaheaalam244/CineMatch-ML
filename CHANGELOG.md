@@ -34,3 +34,4 @@
 - Step 34: Create filter page template
 - Step 35: Implement multi-criteria filtering logic
 - Step 36: Add genre extraction logic for filters
+- Step 37: Implement rating-based filtering
