@@ -14,3 +14,4 @@
 - Step 14: Extract relevant movie metadata from API response
 - Step 15: Implement TF-IDF vectorizer setup
 - Step 16: Add cosine similarity calculation logic
+- Step 17: Implement core recommendation algorithm
