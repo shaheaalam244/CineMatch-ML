@@ -19,3 +19,4 @@
 - Step 19: Create base HTML template with Bootstrap
 - Step 20: Add custom CSS styling for dark mode UI
 - Step 21: Implement Welcome page template
+- Step 22: Add session management for user login
