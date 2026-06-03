@@ -9,3 +9,4 @@
 - Step 9: Add Bollywood movie dataset support
 - Step 10: Integrate web series dataset into pipeline
 - Step 11: Create unified movie database function
+- Step 12: Implement OMDB API fetching logic
