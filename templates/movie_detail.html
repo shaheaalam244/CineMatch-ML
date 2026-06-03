@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}{{ movie.title }} - CineMatch{% endblock %}
+
+{% block extra_css %}
+<style>
+    .movie-detail-header {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+        border-radius: 20px;
+        padding: 40px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .detail-poster {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 15px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .movie-meta {
+        margin-bottom: 15px;
+        color: var(--text-secondary);
+    }
+    
+    .movie-meta i {
+        color: var(--primary-color);
+        margin-right: 10px;
+    }
+    
+    .action-btn {
+        background: var(--card-bg);
+        border: 2px solid var(--primary-color);
+        color: var(--text-primary);
+        padding: 12px 30px;
+        border-radius: 30px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        transition: all 0.3s;
+    }
+    
+    .action-btn:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+    
+    .cast-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .cast-item {
+        background: var(--card-bg);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="movie-detail-header">
+        <div class="row">
+            <div class="col-lg-4 text-center">
+                {% if movie.poster %}
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="detail-poster">
+                {% else %}
+                <div class="poster-placeholder" style="width: 100%; max-width: 400px; height: 600px; margin: 0 auto;">
+                    <i class="fas fa-film fa-5x"></i>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="col-lg-8">
+                <h1 class="mb-3">{{ movie.title }}</h1>
+                
+                {% if movie.tagline %}
+                <p class="text-muted fst-italic mb-4">"{{ movie.tagline }}"</p>
+                {% endif %}
+                
+                <div class="movie-meta">
+                    <i class="fas fa-star"></i>
+                    <strong>Rating:</strong> {{ movie.vote_average }}/10 ({{ movie.vote_count }} votes)
+                </div>
+                
+                {% if movie.genre %}
+                <div class="movie-meta">
+                    <i class="fas fa-theater-masks"></i>
+                    <strong>Genre:</strong> {{ movie.genre }}
+                </div>
+                {% endif %}
+                
+                {% if movie.release_date %}
+                <div class="movie-meta">
+                    <i class="fas fa-calendar"></i>
+                    <strong>Release Date:</strong> {{ movie.release_date }}
+                </div>
+                {% endif %}
+                
+                {% if movie.runtime %}
+                <div class="movie-meta">
+                    <i class="fas fa-clock"></i>
+                    <strong>Runtime:</strong> {{ movie.runtime }} minutes
+                </div>
+                {% endif %}
+                
+                {% if movie.director %}
+                <div class="movie-meta">
+                    <i class="fas fa-user-tie"></i>
+                    <strong>Director:</strong> {{ movie.director }}
+                </div>
+                {% endif %}
+                
+                {% if movie.cast %}
+                <div class="movie-meta">
+                    <i class="fas fa-users"></i>
+                    <strong>Cast:</strong>
+                    <div class="cast-list">
+                        {% for actor in movie.cast %}
+                        <span class="cast-item">{{ actor }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if movie.awards and movie.awards != 'N/A' %}
+                <div class="movie-meta">
+                    <i class="fas fa-trophy"></i>
+                    <strong>Awards:</strong> {{ movie.awards }}
+                </div>
+                {% endif %}
+                
+                {% if movie.rated and movie.rated != 'N/A' %}
+                <div class="movie-meta">
+                    <i class="fas fa-certificate"></i>
+                    <strong>Rated:</strong> {{ movie.rated }}
+                </div>
+                {% endif %}
+                
+                <div class="mt-4">
+                    {% if movie.imdb_link %}
+                    <a href="{{ movie.imdb_link }}" target="_blank" class="btn action-btn">
+                        <i class="fab fa-imdb me-2"></i>View on IMDB
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4 class="mb-3"><i class="fas fa-info-circle me-2"></i>Overview</h4>
+                <p style="line-height: 1.8; color: var(--text-secondary);">
+                    {{ movie.overview }}
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    {% if recommendations %}
+    <div class="mb-5">
+        <h3 class="mb-4">
+            <i class="fas fa-lightbulb me-2" style="color: #fbbf24;"></i>Similar Movies You Might Like
+        </h3>
+        <div class="row">
+            {% for rec in recommendations %}
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <a href="/movie/{{ rec.title }}" class="text-decoration-none">
+                    <div class="movie-card">
+                        {% if rec.poster %}
+                        <img src="{{ rec.poster }}" alt="{{ rec.title }}" class="movie-poster">
+                        {% else %}
+                        <div class="poster-placeholder">
+                            <i class="fas fa-film fa-2x"></i>
+                        </div>
+                        {% endif %}
+                        <div class="movie-info">
+                            <div class="movie-title" title="{{ rec.title }}">{{ rec.title }}</div>
+                            <div class="movie-genre">{{ rec.genre }}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
