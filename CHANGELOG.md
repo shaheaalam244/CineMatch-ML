@@ -13,3 +13,4 @@
 - Step 13: Add error handling for API timeouts
 - Step 14: Extract relevant movie metadata from API response
 - Step 15: Implement TF-IDF vectorizer setup
+- Step 16: Add cosine similarity calculation logic
