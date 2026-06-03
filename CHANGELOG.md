@@ -4,3 +4,4 @@
 - Step 4: Set up basic Flask application structure in app.py
 - Step 5: Create configuration settings for OMDB API
 - Step 6: Implement dataset loading utility function
+- Step 7: Add dataset.csv for Hollywood movies
