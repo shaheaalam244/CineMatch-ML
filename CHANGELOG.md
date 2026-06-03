@@ -10,3 +10,4 @@
 - Step 10: Integrate web series dataset into pipeline
 - Step 11: Create unified movie database function
 - Step 12: Implement OMDB API fetching logic
+- Step 13: Add error handling for API timeouts
