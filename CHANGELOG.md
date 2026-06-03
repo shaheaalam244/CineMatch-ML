@@ -33,3 +33,4 @@
 - Step 33: Integrate recommendations into movie detail page
 - Step 34: Create filter page template
 - Step 35: Implement multi-criteria filtering logic
+- Step 36: Add genre extraction logic for filters
