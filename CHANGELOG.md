@@ -11,3 +11,4 @@
 - Step 11: Create unified movie database function
 - Step 12: Implement OMDB API fetching logic
 - Step 13: Add error handling for API timeouts
+- Step 14: Extract relevant movie metadata from API response
