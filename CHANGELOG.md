@@ -25,3 +25,4 @@
 - Step 25: Add category page template
 - Step 26: Implement Hollywood category route
 - Step 27: Implement Bollywood category route
+- Step 28: Add Web Series category route
