@@ -32,3 +32,4 @@
 - Step 32: Implement movie detail routing
 - Step 33: Integrate recommendations into movie detail page
 - Step 34: Create filter page template
+- Step 35: Implement multi-criteria filtering logic
