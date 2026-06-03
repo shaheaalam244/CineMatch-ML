@@ -1,1 +1,2 @@
 - Step 1: Initial project setup
+- Step 2: Initialize Git repository and add .gitignore
