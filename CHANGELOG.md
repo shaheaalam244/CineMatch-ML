@@ -22,3 +22,4 @@
 - Step 22: Add session management for user login
 - Step 23: Create Home page template for popular movies
 - Step 24: Implement index route logic
+- Step 25: Add category page template
