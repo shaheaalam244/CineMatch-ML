@@ -18,3 +18,4 @@
 - Step 18: Add fallback logic for empty recommendation results
 - Step 19: Create base HTML template with Bootstrap
 - Step 20: Add custom CSS styling for dark mode UI
+- Step 21: Implement Welcome page template
