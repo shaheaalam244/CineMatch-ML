@@ -36,3 +36,4 @@
 - Step 36: Add genre extraction logic for filters
 - Step 37: Implement rating-based filtering
 - Step 38: Optimize performance using LRU cache
+- Step 39: Implement concurrent fetching with ThreadPoolExecutor
